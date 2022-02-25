@@ -14,8 +14,8 @@ int main(){
         sprintf(outname, "Output-%d.txt", i);
         FILE* outcp = fopen(outname, "wb");
         char ch;
-        while(fread(&ch, sizeof(char), 1, incp)){
-            fwrite(&ch, sizeof(char), 1, outcp);
-        }
+        while(fread(&ch, sizeof(char), 1, incp)) fwrite(&ch, sizeof(char), 1, outcp);
+        fclose(outcp);
     }
+    fclose(incp);
 }
